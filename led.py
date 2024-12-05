@@ -10,8 +10,9 @@ from analogio import AnalogIn
 
 pot = AnalogIn(board.A1)
 led = pwmio.PWMOut(board.D0, frequency=5000, duty_cycle=0)
-
-max_val = 65535
+leds = pwmio.PWMOut(board.D1, frequency=5000, duty_cycle=0)
+maxs = 65535
 
 while True:
-            led.duty_cycle = pot.value 
+            led.duty_cycle = pot.value
+            leds.duty_cycle = maxs - pot.value
